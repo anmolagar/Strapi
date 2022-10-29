@@ -1,0 +1,9 @@
+module.exports={
+    routes:[
+        {
+            method:"GET",
+            path:"/content-manager/collection-types/api::video-detail.video-detail",
+            handler:"search.search"
+        }
+    ]
+}
