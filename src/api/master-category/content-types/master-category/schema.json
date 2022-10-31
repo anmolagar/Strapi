@@ -4,7 +4,8 @@
   "info": {
     "singularName": "master-category",
     "pluralName": "master-categories",
-    "displayName": "master_category"
+    "displayName": "master_category",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,16 +16,6 @@
     }
   },
   "attributes": {
-    "category_id": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true,
-      "unique": true
-    },
     "category_name": {
       "pluginOptions": {
         "i18n": {
@@ -44,6 +35,12 @@
       "type": "biginteger",
       "required": true,
       "unique": true
+    },
+    "video_details": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::video-detail.video-detail",
+      "inversedBy": "master_categories"
     }
   }
 }

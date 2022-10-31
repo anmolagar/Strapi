@@ -4,18 +4,14 @@
   "info": {
     "singularName": "video-detail",
     "pluralName": "video-details",
-    "displayName": "video_detail"
+    "displayName": "video_detail",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "video_id": {
-      "type": "string",
-      "required": true,
-      "unique": true
-    },
     "video_name": {
       "type": "string",
       "required": true,
@@ -30,6 +26,18 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "master_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::master-category.master-category",
+      "inversedBy": "video_details"
+    },
+    "master_tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::video-tag.video-tag",
+      "inversedBy": "video_details"
     }
   }
 }

@@ -20,7 +20,6 @@ module.exports = createCoreController('api::video-detail.video-detail', ({ strap
       throw error
       next()
     }
-  },
-  asy
+  }
   
 }));

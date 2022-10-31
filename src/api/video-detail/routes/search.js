@@ -2,8 +2,18 @@ module.exports={
     routes:[
         {
             method:"POST",
-            path:"/content-manager/collection-types/api::video-detail.video-detail",
+            path:"/search",
             handler:"search.search"
+        },
+        {
+            method:"POST",
+            path:"/category",
+            handler:"search.categoryFilter"
+        },
+        {
+            method:"POST",
+            path:"/tag",
+            handler:"search.tags"
         }
     ]
 }

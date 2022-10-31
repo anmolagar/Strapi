@@ -16,16 +16,6 @@
     }
   },
   "attributes": {
-    "tag_id": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true,
-      "unique": true
-    },
     "tag_name": {
       "pluginOptions": {
         "i18n": {
@@ -43,6 +33,12 @@
         }
       },
       "type": "biginteger"
+    },
+    "video_details": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::video-detail.video-detail",
+      "inversedBy": "master_tags"
     }
   }
 }
