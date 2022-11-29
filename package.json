@@ -7,7 +7,12 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "build:win": "cross-env NODE_ENV=production npm run build",
+    "start:win": "cross-env NODE_ENV=production npm start"
+
+
+
   },
   "dependencies": {
     "@strapi/plugin-i18n": "4.4.3",
@@ -15,6 +20,7 @@
     "@strapi/strapi": "4.4.3",
     "@strapi/utils": "4.4.5",
     "better-sqlite3": "7.4.6",
+    "cross-env": "7.0.3",
     "knex": "2.3.0",
     "pg": "8.8.0"
   },
