@@ -4,15 +4,7 @@ switch (process.env.INSTANCE) {
     module.exports = ({ env }) => ({
       connection: {
         client: 'postgres',
-        connection: {
-          host: env('DATABASE_HOST', 'localhost'),
-          port: env.int('DATABASE_PORT', 5433),
-          database: env('DATABASE_NAME', 'postgres'),
-          user: env('DATABASE_USERNAME', 'postgres'),
-          password: env('DATABASE_PASSWORD', 'qwerty'),
-          schema: env('DATABASE_SCHEMA', 'public'), // Not required
-         
-        },
+        connection:env('DATABASE_URL', 'postgres://postgres:qwerty@localhost:5433/moodiday-prod'),
         debug: false,
       },
     });
@@ -23,15 +15,7 @@ switch (process.env.INSTANCE) {
       module.exports = ({ env }) => ({
         connection: {
           client: 'postgres',
-          connection: {
-            host: env('DATABASE_HOST', 'localhost'),
-            port: env.int('DATABASE_PORT', 5433),
-            database: env('DATABASE_NAME', 'moodiday-prod'),
-            user: env('DATABASE_USERNAME', 'postgres'),
-            password: env('DATABASE_PASSWORD', 'qwerty'),
-            schema: env('DATABASE_SCHEMA', 'public'), // Not required
-           
-          },
+           connection:env('DATABASE_URL', 'postgres://postgres:qwerty@localhost:5433/moodiday-prod'),
           debug: false,
         },
       });
