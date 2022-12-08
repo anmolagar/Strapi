@@ -48,7 +48,7 @@ module.exports = createCoreController(
             const videoInfo = await strapi.db.connection
               .select("*")
               .from("video_details")
-              .whereIn("id", videoId);
+              .whereIn("id", videoId).orderBy('id', 'desc');
             return {
               status: 200,
               success: true,
@@ -96,7 +96,7 @@ module.exports = createCoreController(
             const videoInfo = await strapi.db.connection
               .select("*")
               .from("video_details")
-              .whereIn("id", videoId);
+              .whereIn("id", videoId).orderBy('id', 'desc');
             return {
               status: 200,
               success: true,
