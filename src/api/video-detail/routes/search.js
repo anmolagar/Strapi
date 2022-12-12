@@ -12,7 +12,7 @@ module.exports={
         },
         {
             method:"POST",
-            path:"/tag",
+            path:"/get/video",
             handler:"search.tags"
         }
     ]
