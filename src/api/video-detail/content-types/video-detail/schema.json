@@ -38,6 +38,14 @@
       "relation": "manyToMany",
       "target": "api::video-tag.video-tag",
       "inversedBy": "video_details"
+    },
+    "subcategories": {
+      "type": "enumeration",
+      "enum": [
+        "Hybrid",
+        "Indica",
+        "Sativa"
+      ]
     }
   }
 }
