@@ -40,7 +40,15 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::video-detail.video-detail",
-      "inversedBy": "master_categories"
+      "mappedBy": "master_categories"
+    },
+    "img_url": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
     }
   }
 }
