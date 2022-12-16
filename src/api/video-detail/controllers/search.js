@@ -14,15 +14,15 @@ module.exports = createCoreController(
       if (searchItem && searchItem.length > 0) {
         try {
           const data = await strapi.db.connection.raw(
-            `SELECT vd.*,mc.category_name,vt.tag_name FROM video_details vd
-          INNER JOIN video_details_master_categories_links vdmcl ON vdmcl.video_detail_id=vd.id
-          INNER JOIN master_categories mc ON mc.id=vdmcl.master_category_id 
-          INNER JOIN video_details_master_tags_links vtvdl ON vtvdl.video_detail_id=vd.id
-          INNER JOIN video_tags vt ON vt.id=vtvdl.video_tag_id
-          WHERE 	LOWER(vd.video_name) 	LIKE LOWER('%${searchItem}%') OR LOWER(mc.category_name) LIKE LOWER('%${searchItem}%') 
-             OR LOWER(vt.tag_name)   	LIKE LOWER('%${searchItem}%') OR LOWER(vd.description) LIKE LOWER('%${searchItem}%')
-             OR LOWER(vd.subcategories) LIKE LOWER('%${searchItem}%')
-          ORDER BY updated_at`
+            `SELECT distinct vd.* FROM video_details vd
+            INNER JOIN video_details_master_categories_links vdmcl ON vdmcl.video_detail_id=vd.id
+            INNER JOIN master_categories mc ON mc.id=vdmcl.master_category_id
+            INNER JOIN video_details_master_tags_links vtvdl ON vtvdl.video_detail_id=vd.id
+            INNER JOIN video_tags vt ON vt.id=vtvdl.video_tag_id
+            WHERE 	LOWER(vd.video_name) 	LIKE LOWER('%${searchItem}%') OR LOWER(mc.category_name) LIKE LOWER('%${searchItem}%')
+               OR LOWER(vt.tag_name)   	LIKE LOWER('%${searchItem}%') OR LOWER(vd.description) 	LIKE LOWER('%${searchItem}%')
+               OR LOWER(vd.subcategories) LIKE LOWER('%${searchItem}%')
+            ORDER BY updated_at desc`
           );
           return {
             status: 200,
@@ -96,10 +96,10 @@ module.exports = createCoreController(
             let videodata = await strapi.db.connection.raw(`SELECT mc.category_name,array_to_json(array_agg(row_to_json((vd.*))))
             FROM video_details vd
             INNER JOIN video_details_master_categories_links vdmcl ON vdmcl.video_detail_id=vd.id
-            INNER JOIN master_categories mc ON mc.id=vdmcl.master_category_id 
+            INNER JOIN master_categories mc ON mc.id=vdmcl.master_category_id
             INNER JOIN video_details_master_tags_links  vtvdl ON vtvdl.video_detail_id=vd.id
             INNER JOIN video_tags vt ON vt.id=vtvdl.video_tag_id
-            WHERE LOWER(vt.tag_name) = LOWER('${tags}') 
+            WHERE LOWER(vt.tag_name) = LOWER('${tags}')
             GROUP BY mc.category_name`)
             videodata = videodata?.rows
             return {
