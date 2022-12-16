@@ -1,4 +1,5 @@
-module.exports = [
+
+module.exports =({env})=>[
   'strapi::errors',
   'strapi::security',
   'strapi::cors',
@@ -9,4 +10,18 @@ module.exports = [
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
+  {
+    name: "strapi::security",
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          "connect-src": ["'self'", "https:"],
+          "img-src": ["'self'", "data:", "blob:", `${env("DO_SPACE_CDN")}`],
+          "media-src": ["'self'", "data:", "blob:", `${env("DO_SPACE_CDN")}`],
+          upgradeInsecureRequests: null,
+        }
+      }
+    }
+  },
 ];

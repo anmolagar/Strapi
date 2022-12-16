@@ -1,0 +1,9 @@
+{
+  "provider": "strapi-provider-upload-do",
+  "providerOptions": {
+    "key": "DO_SPACE_ACCESS_KEY",
+    "secret": "DO_SPACE_SECRET_KEY",
+    "endpoint": "DO_SPACE_ENDPOINT",
+    "space": "DO_SPACE_BUCKET"
+  }
+  }
