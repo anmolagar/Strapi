@@ -46,6 +46,14 @@
         "Indica",
         "Sativa"
       ]
+    },
+    "video": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }
