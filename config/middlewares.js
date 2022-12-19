@@ -17,8 +17,8 @@ module.exports =({env})=>[
         useDefaults: true,
         directives: {
           "connect-src": ["'self'", "https:"],
-          "img-src": ["'self'", "data:", "blob:", `https://moodiday.${env("DO_SPACE_ENDPOINT")}`],
-          "media-src": ["'self'", "data:", "blob:", `https://moodiday.${env("DO_SPACE_ENDPOINT")}`],
+          "img-src": ["'self'", "data:", "blob:", 'dl.airtable.com', `https://moodiday.${env("DO_SPACE_ENDPOINT")}`],
+          "media-src": ["'self'", "data:", "blob:",  'dl.airtable.com',`https://moodiday.${env("DO_SPACE_ENDPOINT")}`],
           upgradeInsecureRequests: null,
         }
       }
