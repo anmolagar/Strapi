@@ -14,7 +14,9 @@ module.exports = createCoreController(
       if (searchItem && searchItem.length > 0) {
         try {
           const data = await strapi.db.connection.raw(
-            `SELECT distinct vd.* FROM video_details vd
+            `SELECT distinct vd.*,f.url FROM video_details vd
+			INNER JOIN files_related_morphs frm ON frm.related_id=vd.id
+			INNER JOIN files f ON frm.file_id=f.id
             INNER JOIN video_details_master_categories_links vdmcl ON vdmcl.video_detail_id=vd.id
             INNER JOIN master_categories mc ON mc.id=vdmcl.master_category_id
             INNER JOIN video_details_master_tags_links vtvdl ON vtvdl.video_detail_id=vd.id
@@ -93,8 +95,10 @@ module.exports = createCoreController(
         const tags = ctx.request.body?.["tags"];
         if (tags && tags?.length > 0) {
           try {
-            let videodata = await strapi.db.connection.raw(`SELECT mc.category_name,array_to_json(array_agg(row_to_json((vd.*))))
+            let videodata = await strapi.db.connection.raw(`SELECT mc.category_name, array_to_json(array_agg(row_to_json((vd.*,f.url))))
             FROM video_details vd
+			       INNER JOIN files_related_morphs frm ON frm.related_id=vd.id
+		         INNER JOIN files f ON frm.file_id=f.id
             INNER JOIN video_details_master_categories_links vdmcl ON vdmcl.video_detail_id=vd.id
             INNER JOIN master_categories mc ON mc.id=vdmcl.master_category_id
             INNER JOIN video_details_master_tags_links  vtvdl ON vtvdl.video_detail_id=vd.id

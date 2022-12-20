@@ -22,11 +22,6 @@
       "required": true,
       "unique": true
     },
-    "video_url": {
-      "type": "string",
-      "required": true,
-      "unique": true
-    },
     "master_categories": {
       "type": "relation",
       "relation": "manyToMany",
@@ -48,12 +43,12 @@
       ]
     },
     "video": {
-      "allowedTypes": [
-        "videos"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "videos"
+      ]
     }
   }
 }
