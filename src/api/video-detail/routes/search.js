@@ -14,6 +14,11 @@ module.exports={
             method:"POST",
             path:"/get/video",
             handler:"search.tags"
+        },
+        {
+          method:"POST",
+          path:"/get/dummy",
+          handler:"search.dummy"
         }
     ]
 }

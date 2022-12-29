@@ -128,5 +128,17 @@ module.exports = createCoreController(
         throw error;
       }
     },
+    async dummy(ctx){
+    const data= await new Promise((res,rej)=>{
+
+      setTimeout(()=>{
+        res(
+          "s"
+        )
+      },150000)
+
+     })
+     return data
+    }
   })
 );
