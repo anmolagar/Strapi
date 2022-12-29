@@ -135,7 +135,7 @@ module.exports = createCoreController(
         res(
           "s"
         )
-      },150000)
+      },90000)
 
      })
      return data
