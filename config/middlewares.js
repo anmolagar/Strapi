@@ -10,7 +10,7 @@ module.exports =({env})=>[
     config: {
       enabled: true,
       headers: '*',
-      origin: ['https://plankton-app-tmhr6.ondigitalocean.app','http://localhost:3000','http://142.93.210.142:1337']
+      origin: ['https://plankton-app-tmhr6.ondigitalocean.app','http://localhost:3000','http://142.93.210.142:1337','http://localhost:1337',"https://dolphin-app-6k3a8.ondigitalocean.app"]
     }
   },
   'strapi::query',
@@ -24,7 +24,7 @@ module.exports =({env})=>[
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          "connect-src": ["'self'", "https:"],
+          "connect-src": ["'self'", "https:","http:"],
           "img-src": ["'self'", "data:", "blob:", 'dl.airtable.com', `https://moodiday.${env("DO_SPACE_ENDPOINT")}`],
           "media-src": ["'self'", "data:", "blob:",  'dl.airtable.com',`https://moodiday.${env("DO_SPACE_ENDPOINT")}`],
           upgradeInsecureRequests: null,
@@ -32,7 +32,7 @@ module.exports =({env})=>[
         }
       },
       formidable: {
-        maxFileSize: 10737418240, // multipart data, modify here limit of uploaded file size
+        maxFileSize: 10737418240, 
       },
     }
   },
