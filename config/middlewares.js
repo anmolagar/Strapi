@@ -5,6 +5,14 @@ module.exports =({env})=>[
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::logger',
+  {
+    name: 'strapi::cors',
+    config: {
+      enabled: true,
+      headers: '*',
+      origin: [ 'https://plankton-app-tmhr6.ondigitalocean.app','http://localhost:1337']
+    }
+  },
   'strapi::query',
   'strapi::body',
   'strapi::session',
