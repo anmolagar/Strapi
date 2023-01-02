@@ -10,7 +10,7 @@ module.exports =({env})=>[
     config: {
       enabled: true,
       headers: '*',
-      origin: ['https://plankton-app-tmhr6.ondigitalocean.app','http://localhost:3000']
+      origin: ['https://plankton-app-tmhr6.ondigitalocean.app','http://localhost:3000','http://142.93.210.142:1337']
     }
   },
   'strapi::query',
