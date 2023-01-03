@@ -52,6 +52,13 @@ module.exports = [
   {
     name: "strapi::security",
     config: {
+      formLimit: "10000mb", // modify form body
+      jsonLimit: "10000mb", // modify JSON body
+      textLimit: "10000mb", // modify text body
+      formidable: {
+        maxFileSize: 10737418240, // multipart data, modify here limit of uploaded file size
+      },
+
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
@@ -61,14 +68,14 @@ module.exports = [
             "data:",
             "blob:",
             "dl.airtable.com",
-            "moodiday-file-storage.s3.us-east-1.amazonaws.com",
+            "https://moodiday-file-storage.amazonaws.com",
           ],
           "media-src": [
             "'self'",
             "data:",
             "blob:",
             "dl.airtable.com",
-            "moodiday-file-storage.s3.us-east-1.amazonaws.com",
+            "https://moodiday-file-storage.s3.amazonaws.com",
           ],
           upgradeInsecureRequests: null,
         },
