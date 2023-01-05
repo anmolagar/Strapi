@@ -23,3 +23,12 @@ module.exports = ({ env }) => ({
     },
   }
 });
+
+module.exports = {
+  // ...
+  'video-upload': {
+    enabled: true,
+    resolve: './src/plugins/video-upload'
+  },
+  // ...
+}
