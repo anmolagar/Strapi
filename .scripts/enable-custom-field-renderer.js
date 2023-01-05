@@ -2,30 +2,30 @@ const { trim } = require('lodash');
 const fs = require('fs');
 
 const REPLACEMENT = `
-    <GenericInput
-      attribute={fieldSchema}
-      autoComplete="new-password"
-      intlLabel={{ id: label, defaultMessage: label }}
-      // in case the default value of the boolean is null, attribute.default doesn't exist
-      isNullable={inputType === 'bool' && [null, undefined].includes(fieldSchema.default)}
-      description={description ? { id: description, defaultMessage: description } : null}
-      disabled={shouldDisableField}
-      error={error}
-      labelAction={labelAction}
-      contentTypeUID={currentContentTypeLayout.uid}
-      customInputs={customInputs}
-      multiple={fieldSchema.multiple || false}
-      name={keys}
-      onChange={onChange}
-      options={options}
-      placeholder={placeholder ? { id: placeholder, defaultMessage: placeholder } : null}
-      required={fieldSchema.required || false}
-      step={inputStep}
-      type={customFieldUid || inputType}
-      // validations={validations}
-      value={inputValue}
-      withDefaultValue={false}
-    />
+<GenericInput
+attribute={fieldSchema}
+autoComplete="new-password"
+intlLabel={{ id: label, defaultMessage: label }}
+// in case the default value of the boolean is null, attribute.default doesn't exist
+isNullable={inputType === 'bool' && [null, undefined].includes(fieldSchema.default)}
+description={description ? { id: description, defaultMessage: description } : null}
+disabled={shouldDisableField}
+error={error}
+labelAction={labelAction}
+contentTypeUID={currentContentTypeLayout.uid}
+customInputs={customInputs}
+multiple={fieldSchema.multiple || false}
+name={keys}
+onChange={onChange}
+options={options}
+placeholder={placeholder ? { id: placeholder, defaultMessage: placeholder } : null}
+required={fieldSchema.required || false}
+step={inputStep}
+type={(fieldSchema.customFieldConfig || {}).fieldRenderer || customFieldUid || inputType}
+// validations={validations}
+value={inputValue}
+withDefaultValue={false}
+/>
 `
 
 function enableCustomFieldRenderer() {

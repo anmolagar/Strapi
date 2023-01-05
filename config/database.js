@@ -1,5 +1,5 @@
-var pg = require('pg');
-pg.defaults.ssl = false;
+// var pg = require('pg');
+// pg.defaults.ssl = false;
 
 // module.exports = ({ env }) => ({
 //   connection: {
@@ -15,17 +15,17 @@ pg.defaults.ssl = false;
 //     useNullAsDefault: false,
 //   },
 // });
-module.exports = ({ env }) => ({
-  connection: {
-    client: "postgres",
-    connection: {
-      host: 'localhost',
-      port:  5432,
-      database:  "postgres",
-      user: "postgres",
-      password: "qwerty",
-    },
+// module.exports = ({ env }) => ({
+//   connection: {
+//     client: "postgres",
+//     connection: {
+//       host: 'localhost',
+//       port:  5432,
+//       database:  "postgres",
+//       user: "postgres",
+//       password: "qwerty",
+//     },
 
-    useNullAsDefault: false,
-  },
-});
+//     useNullAsDefault: false,
+//   },
+// });
