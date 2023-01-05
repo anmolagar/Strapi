@@ -45,10 +45,15 @@
     "video": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "videos"
       ]
-    }
-  }
+    },
+    "V_name": {
+      "type": "string",
+      "customFieldConfig":{
+        "fieldRenderer":"video-upload"
+      }
+    }}
 }

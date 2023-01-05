@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_main_videos",
+  "info": {
+    "displayName": "video",
+    "icon": "video"
+  },
+  "options": {},
+  "attributes": {
+    "video_name": {
+      "type": "string"
+    },
+    "video_url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

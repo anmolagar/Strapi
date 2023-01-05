@@ -4,17 +4,19 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
-    "build": "strapi build",
+    "develop": "yarn prebuild && strapi develop",
+    "start": "yarn prebuild && strapi start",
+    "build": "yarn prebuild && strapi build",
     "strapi": "strapi",
     "build:win": "cross-env NODE_ENV=production npm run build",
     "start:win": "cross-env NODE_ENV=production npm start",
-    "installModules":"yarn install"
+    "installModules": "yarn install",
+    "prebuild":"node ./.scripts/index.js"
   },
   "dependencies": {
     "@strapi/plugin-i18n": "4.4.3",
     "@strapi/plugin-users-permissions": "4.4.3",
+    "@strapi/provider-upload-aws-s3": "^4.5.5",
     "@strapi/strapi": "4.4.3",
     "@strapi/utils": "4.4.5",
     "better-sqlite3": "7.4.6",

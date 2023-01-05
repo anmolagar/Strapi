@@ -1,4 +1,3 @@
-
 module.exports =({env})=>[
   'strapi::errors',
   'strapi::security',
@@ -36,4 +35,54 @@ module.exports =({env})=>[
       },
     }
   },
+];
+
+// s3 DO
+module.exports = ({env})=>[
+  "strapi::errors",
+  "strapi::security",
+  "strapi::cors",
+  "strapi::poweredBy",
+  "strapi::logger",
+  "strapi::query",
+  "strapi::public",
+   "strapi::favicon",
+   "strapi::body",
+
+  {
+    name: "strapi::security",
+    config: {
+      formLimit: "10000mb", // modify form body
+      jsonLimit: "10000mb", // modify JSON body
+      textLimit: "10000mb", // modify text body
+      formidable: {
+        maxFileSize: 10737418240, // multipart data, modify here limit of uploaded file size
+      },
+
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          "connect-src": ["'self'", "https:"],
+          "img-src": [
+            "'self'",
+            "data:",
+            "blob:",
+            "dl.airtable.com",
+            "https://moodiday-file-storage.amazonaws.com",
+            `https://moodiday.${env("DO_SPACE_ENDPOINT")}`
+          ],
+          "media-src": [
+            "'self'",
+            "data:",
+            "blob:",
+            "dl.airtable.com",
+            "https://moodiday-file-storage.s3.amazonaws.com",
+            `https://moodiday.${env("DO_SPACE_ENDPOINT")}`
+          ],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
+  },
+  // ...
 ];
