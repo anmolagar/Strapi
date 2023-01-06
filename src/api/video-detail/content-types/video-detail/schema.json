@@ -42,18 +42,11 @@
         "Sativa"
       ]
     },
-    "video": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "videos"
-      ]
-    },
     "V_name": {
       "type": "string",
-      "customFieldConfig":{
-        "fieldRenderer":"video-upload"
+      "customFieldConfig": {
+        "fieldRenderer": "video-upload"
       }
-    }}
+    }
+  }
 }
