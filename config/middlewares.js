@@ -69,7 +69,8 @@ module.exports = ({env})=>[
             "blob:",
             "dl.airtable.com",
             "https://moodiday-file-storage.amazonaws.com",
-            `https://moodiday.${env("DO_SPACE_ENDPOINT")}`
+            `https://moodiday.${env("DO_SPACE_ENDPOINT")}`,
+            `https://moodiday.cdn.${env("DO_SPACE_ENDPOINT")}`
           ],
           "media-src": [
             "'self'",
@@ -77,7 +78,8 @@ module.exports = ({env})=>[
             "blob:",
             "dl.airtable.com",
             "https://moodiday-file-storage.s3.amazonaws.com",
-            `https://moodiday.${env("DO_SPACE_ENDPOINT")}`
+            `https://moodiday.${env("DO_SPACE_ENDPOINT")}`,
+            `https://moodiday.nyc3.cdn.digitaloceanspaces.com`
           ],
           upgradeInsecureRequests: null,
         },
