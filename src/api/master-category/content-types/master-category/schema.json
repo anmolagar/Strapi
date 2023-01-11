@@ -42,13 +42,13 @@
       "target": "api::video-detail.video-detail",
       "mappedBy": "master_categories"
     },
-    "img_url": {
+    "img": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "text"
+      "type": "media"
     }
   }
 }

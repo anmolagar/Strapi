@@ -10,6 +10,7 @@ const VideoURL = (props) => {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
         <form>
+        <label style={{fontSize:"12px",fontWeight:"600",marginBottom:"10px",color:"white"}}>video url<span style={{color:"red"}}>*</span></label>
         <input
           id="URL"
           placeholder="video url"
